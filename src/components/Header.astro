@@ -1,11 +1,13 @@
 ---
 import HeaderLink from './HeaderLink.astro';
+import Logo from './Logo.astro';
+import WindowsButton from './WindowsButton.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<WindowsButton><Logo height="50"/></WindowsButton><a href="/"><Logo height={40} /></a>
 		<div class="internal-links">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
@@ -62,6 +64,7 @@ import { SITE_TITLE } from '../consts';
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		background-color: ;
 	}
 	nav a {
 		padding: 1em 0.5em;
