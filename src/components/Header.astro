@@ -2,12 +2,15 @@
 import HeaderLink from './HeaderLink.astro';
 import Logo from './Logo.astro';
 import WindowsButton from './WindowsButton.astro';
+import WindowsTopBar from './WindowsTopBar.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
 <header>
+	<WindowsTopBar />
 	<nav>
-		<WindowsButton><Logo height="50"/></WindowsButton><a href="/"><Logo height={40} /></a>
+		
+	<a href="/"><WindowsButton><Logo height="50"/></WindowsButton></a>
 		<div class="internal-links">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
@@ -47,8 +50,8 @@ import { SITE_TITLE } from '../consts';
 <style>
 	header {
 		margin: 0;
-		padding: 0 1em;
-		background: white;
+		
+		background: #c6c6c6;
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
 	}
 	h2 {
@@ -64,18 +67,10 @@ import { SITE_TITLE } from '../consts';
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		background-color: ;
+		padding: 0px 10px 0px 10px;
+		
 	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
+	
 	.social-links,
 	.social-links a {
 		display: flex;

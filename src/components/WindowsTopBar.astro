@@ -1,0 +1,39 @@
+---
+import WindowsButton from "./WindowsButton.astro";
+
+
+---
+
+
+    <div class="bar">
+        <div></div>
+        <div class="buttons">
+            <WindowsButton>_</WindowsButton>
+            <WindowsButton>&#x25A1;</WindowsButton>
+            <WindowsButton>X</WindowsButton>
+        </div>
+    </div>
+
+<style>
+   
+
+    .bar {
+        background-color: #051A80;
+        height: auto;
+        width: auto;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 3px 6px 3px 6px;
+        display: flex;
+		align-items: center;
+		justify-content: space-between;
+        
+    }
+
+    .buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+</style>

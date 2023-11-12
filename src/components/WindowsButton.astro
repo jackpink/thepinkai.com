@@ -1,14 +1,18 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-type Props = HTMLAttributes<'button'>;
+type Props = {
+    onclick?: () => void;
+    active?: boolean;
+} & HTMLAttributes<'button'>;
 
-const { onclick, class: className, ...props } = Astro.props;
+const { onclick, active=false, class: className, ...props } = Astro.props;
+
 
 ---
 
 
-    <button class="winCl-btn" value="Button" >
+    <button class:list={[className, { active: active }, 'winCl-btn']}"winCl-btn" value="Button" >
         <slot />
     </button>
 
@@ -23,13 +27,13 @@ const { onclick, class: className, ...props } = Astro.props;
     }
 
     .winCl-btn {
-    border-left: 1px solid #fff;
-    border-top: 1px solid #fff;
-    border-right: 1px solid #848484;
-    border-bottom: 1px solid #848484;
+    border-left: 3px solid #fff;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #848484;
+    border-bottom: 3px solid #848484;
     
     background: #c6c6c6;
-    padding: 3px 15px 3px 15px;
+    padding: 3px 6px 3px 6px;
     }
 
     .winCl-btn:hover,
@@ -38,6 +42,13 @@ const { onclick, class: className, ...props } = Astro.props;
     }
 
     .winCl-btn:active {
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    border-left: 1px solid #848484;
+    border-top: 1px solid #848484;
+    }
+
+    button.active {
     border-right: 1px solid #fff;
     border-bottom: 1px solid #fff;
     border-left: 1px solid #848484;
