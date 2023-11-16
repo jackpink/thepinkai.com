@@ -9,7 +9,7 @@ import NrlSupercoachAiBlogIcon from './NrlSupercoachAiBlogIcon.astro';
 import NrlSupercoachAiSimIcon from './NrlSupercoachAiSimIcon.astro';
 
 /* Set the width of the side navigation to 250px */
-let isOpen =true;
+let isOpen =false;
 
 const closeNav = () => {
     
@@ -17,19 +17,10 @@ const closeNav = () => {
 
 ---
 
-<div class:list={["sidenav", {open: isOpen }]} id="sidebarMenu">
-	<WindowsButton id="sidebarMenuCloseButton" >X</WindowsButton>
+<div id="sidebarMenu" class:list={["sidenav", {open: false}]}> 
+    <WindowsButton id="sidebarMenuCloseButton">X</WindowsButton>
 </div>
 
-<script>
-    const sidebarMenuCloseButton = document.getElementById('sidebarMenuCloseButton');
-    const sidebarMenu = document.getElementById('sidebarMenu');
-    console.log(sidebarMenuCloseButton)
-    console.log(sidebarMenu)
-    sidebarMenuCloseButton?.addEventListener('click', () => {
-        sidebarMenu?.classList.toggle('open');
-    });
-</script>
 
 <style>
 	
