@@ -29,16 +29,38 @@ import NrlSupercoachAiSimIcon from './NrlSupercoachAiSimIcon.astro';
 			</HeaderLink>
 			<HeaderLink href="/about">
 				<IconButton>
-				<NrlSupercoachAiSimIcon height={50} />
-				Supercoach AI Sim
-			</IconButton>
-		</HeaderLink>
+					<NrlSupercoachAiSimIcon height={50} />
+					Supercoach AI Sim
+				</IconButton>
+			</HeaderLink>
 		</div>
 		<WindowsButton id="navMenuButton">Menu</WindowsButton>
 		
 	</nav>
-	<div id="sidebarMenu" class:list={["sidenav", {open: true}]}> 
-		<WindowsButton id="sidebarMenuCloseButton">X</WindowsButton>
+	<div id="sidebarMenu" class:list={["sidenav", {open: false}]}> 
+		<div class="sidebarMenuCloseButton">
+			<WindowsButton id="sidebarMenuCloseButton">X</WindowsButton>
+		</div>
+		<div class="sidebarMenuPageButtons">
+			<HeaderLink href="/blog">
+				<IconButton>
+					<TechBlogIcon height={50} slot="icon"/>
+					Tech Blog
+				</IconButton>
+			</HeaderLink>
+			<HeaderLink href="/supercoach-blog">
+				<IconButton>
+					<NrlSupercoachAiBlogIcon height={50}/>
+					Supercoach AI Blog
+				</IconButton>
+			</HeaderLink>
+			<HeaderLink href="/about">
+				<IconButton>
+					<NrlSupercoachAiSimIcon height={50} />
+					Supercoach AI Sim
+				</IconButton>
+			</HeaderLink>
+		</div>
 	</div>
 </header>
 
@@ -47,13 +69,12 @@ import NrlSupercoachAiSimIcon from './NrlSupercoachAiSimIcon.astro';
     const navMenuButton = document.getElementById('navMenuButton');
 	const sidebarMenuCloseButton = document.getElementById('sidebarMenuCloseButton');
     const sidebarMenu = document.getElementById('sidebarMenu');
-    console.log(sidebarMenuCloseButton)
-    console.log(sidebarMenu)
-	console.log(navMenuButton)
+    
 	navMenuButton?.addEventListener('click', () => {
 		sidebarMenu?.classList.
 		   toggle('open');
 	});
+
     sidebarMenuCloseButton?.addEventListener('click', () => {
         sidebarMenu?.classList.
 		   toggle('open');
@@ -95,14 +116,35 @@ import NrlSupercoachAiSimIcon from './NrlSupercoachAiSimIcon.astro';
         right: 0;
         background-color: #c6c6c6; /* Black*/
         overflow-x: hidden; /* Disable horizontal scroll */
-        padding-top: 60px; /* Place content 60px from the top */
+        padding-top: 10px; /* Place content 60px from the top */
         transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
     }
 	
     .open {
         width: 250px;
     }
+
+	.internal-links {
+		
+		align-items: center;
+		gap: 10px;
+	}
+
+	.sidebarMenuCloseButton {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 10px;
+	}
 	
+	.sidebarMenuPageButtons {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 10px;
+		gap: 10px;
+	}
 	
 	
 </style>
@@ -119,6 +161,9 @@ import NrlSupercoachAiSimIcon from './NrlSupercoachAiSimIcon.astro';
 	@media (min-width: 640px) {
 		#navMenuButton {
 			display: none;
+		}
+		.internal-links {
+			display: flex;
 		}
 	}
 </style>
