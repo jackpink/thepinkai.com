@@ -9,20 +9,28 @@ import NrlSupercoachAiBlogIcon from './NrlSupercoachAiBlogIcon.astro';
 import NrlSupercoachAiSimIcon from './NrlSupercoachAiSimIcon.astro';
 
 /* Set the width of the side navigation to 250px */
-let isOpen =true
+let isOpen =true;
 
-function closeNav() {
-    isOpen = false
+const closeNav = () => {
+    
 }
 
 ---
 
 <div class:list={["sidenav", {open: isOpen }]} id="sidebarMenu">
-	<WindowsButton onclick={closeNav}>X</WindowsButton>
-
-		
-	
+	<WindowsButton id="sidebarMenuCloseButton" >X</WindowsButton>
 </div>
+
+<script>
+    const sidebarMenuCloseButton = document.getElementById('sidebarMenuCloseButton');
+    const sidebarMenu = document.getElementById('sidebarMenu');
+    console.log(sidebarMenuCloseButton)
+    console.log(sidebarMenu)
+    sidebarMenuCloseButton?.addEventListener('click', () => {
+        sidebarMenu?.classList.toggle('open');
+    });
+</script>
+
 <style>
 	
     .sidenav {

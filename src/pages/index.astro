@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Logo from '../components/Logo.astro';
+import SidebarMenu from '../components/SidebarMenu.astro';
 ---
 
 <!doctype html>
@@ -23,6 +24,7 @@ import Logo from '../components/Logo.astro';
 	<body>
 		<Header title={SITE_TITLE} />
 		<main>
+			<SidebarMenu />
 			<Logo height={80} />
 			
 		</main>

@@ -2,19 +2,17 @@
 import type { HTMLAttributes } from 'astro/types';
 
 type Props = {
-    onclick?: () => void;
     active?: boolean;
+    id?: string;
 } & HTMLAttributes<'button'>;
 
-const { onclick, active=false, class: className, ...props } = Astro.props;
-
+const { id, active=false, class: className, ...props } = Astro.props;
 
 ---
 
-
-    <button class:list={[className, { active: active }, 'winCl-btn']}"winCl-btn" value="Button" >
-        <slot />
-    </button>
+<button id={id} windows-button class:list={[className, { active: active }, 'winCl-btn']}"winCl-btn" value="Button">
+    <slot />
+</button>
 
 <style>
     .winCl-wrap {
