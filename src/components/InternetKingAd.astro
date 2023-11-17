@@ -7,7 +7,9 @@ import Homer from './Homer.astro'
         <h1 id="textTwo">FAST !</h1>
         <h1 id="textThree">CHEAP !</h1>
     </div>
-    <Homer height={90}/>
+    <div class="homer-box">
+        <Homer height={90}/>
+    </div>
 </div>
 
 <style>
@@ -18,6 +20,7 @@ import Homer from './Homer.astro'
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
+        position: relative;
     }
 
     .text-box {
@@ -25,9 +28,21 @@ import Homer from './Homer.astro'
         position: relative;
         display: flex;
         flex-direction: column;
+        flex: 1 1 auto;
         align-items: center;
         justify-content: center;
         padding: 5px;
+      
+    }
+
+    .homer-box {
+        background-color: white;
+        flex: 1 1 auto;
+        height: 84px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     h1 {

@@ -22,7 +22,8 @@ const playerTradesPosts = posts.filter((post) => post.data.category === 'player-
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
 			main {
-				width: 960px;
+			
+				
 			}
 			ul {
 				display: flex;
@@ -49,12 +50,12 @@ const playerTradesPosts = posts.filter((post) => post.data.category === 'player-
 			}
 			.title {
 				margin: 0;
-				color: rgb(var(--black));
+				color: rgb(148 163 184);
 				line-height: 1;
 			}
 			.date {
 				margin: 0;
-				color: rgb(var(--gray));
+				color: rgb(100 116 139);
 			}
 			ul li a:hover h4,
 			ul li a:hover .date {
@@ -67,7 +68,7 @@ const playerTradesPosts = posts.filter((post) => post.data.category === 'player-
 				text-align: center;
 			}
 			h2{
-				color: black;
+				color: rgb(226 232 240);
 			}
 			h3 {
 				background-color: rgb(148 163 184);	
@@ -95,55 +96,57 @@ const playerTradesPosts = posts.filter((post) => post.data.category === 'player-
 	<body>
 		<Header />
 		<main>
-			<h2> NRL Supercoach AI Blog</h2>
-			<section>
-				
-				<h3>Selecting Initial Squad</h3>
-				<ul>
-				{
-					selectingSquadPosts.map((post) => (
-						<li>
-							<a href={`/supercoach-blog/${post.slug}/`}>
-								<h4 class="title">{post.data.title}</h4>
-								<p class="date">
-									<FormattedDate date={post.data.pubDate} />
-								</p>
-							</a>
-						</li>
-					))
-				}
-				</ul>
-				<h3>Team Selection</h3>
-				<ul>
-				{
-					teamSelectionPosts.map((post) => (
-						<li>
-							<a href={`/supercoach-blog/${post.slug}/`}>
-								<h4 class="title">{post.data.title}</h4>
-								<p class="date">
-									<FormattedDate date={post.data.pubDate} />
-								</p>
-							</a>
-						</li>
-					))
-				}
-				</ul>
-				<h3>Player Trades</h3>
-				<ul>
-				{
-					playerTradesPosts.map((post) => (
-						<li>
-							<a href={`/supercoach-blog/${post.slug}/`}>
-								<h4 class="title">{post.data.title}</h4>
-								<p class="date">
-									<FormattedDate date={post.data.pubDate} />
-								</p>
-							</a>
-						</li>
-					))
-				}
-				</ul>
-			</section>
+			<div class="max-width">
+				<h2> NRL Supercoach AI Blog</h2>
+				<section>
+					
+					<h3>Selecting Initial Squad</h3>
+					<ul>
+					{
+						selectingSquadPosts.map((post) => (
+							<li>
+								<a href={`/supercoach-blog/${post.slug}/`}>
+									<h4 class="title">{post.data.title}</h4>
+									<p class="date">
+										<FormattedDate date={post.data.pubDate} />
+									</p>
+								</a>
+							</li>
+						))
+					}
+					</ul>
+					<h3>Team Selection</h3>
+					<ul>
+					{
+						teamSelectionPosts.map((post) => (
+							<li>
+								<a href={`/supercoach-blog/${post.slug}/`}>
+									<h4 class="title">{post.data.title}</h4>
+									<p class="date">
+										<FormattedDate date={post.data.pubDate} />
+									</p>
+								</a>
+							</li>
+						))
+					}
+					</ul>
+					<h3>Player Trades</h3>
+					<ul>
+					{
+						playerTradesPosts.map((post) => (
+							<li>
+								<a href={`/supercoach-blog/${post.slug}/`}>
+									<h4 class="title">{post.data.title}</h4>
+									<p class="date">
+										<FormattedDate date={post.data.pubDate} />
+									</p>
+								</a>
+							</li>
+						))
+					}
+					</ul>
+				</section>
+		</div>
 		</main>
 		<Footer />
 	</body>
