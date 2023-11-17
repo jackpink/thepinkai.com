@@ -5,6 +5,7 @@ import Logo from './Logo.astro';
 import WindowsButton from './WindowsButton.astro';
 import WindowsTopBar from './WindowsTopBar.astro';
 import TechBlogIcon from './TechBlogIcon.astro';
+import MenuIcon from './MenuIcon.astro';
 import NrlSupercoachAiBlogIcon from './NrlSupercoachAiBlogIcon.astro';
 import NrlSupercoachAiSimIcon from './NrlSupercoachAiSimIcon.astro';
 ---
@@ -16,25 +17,22 @@ import NrlSupercoachAiSimIcon from './NrlSupercoachAiSimIcon.astro';
 	<a href="/"><WindowsButton><Logo height="40"/></WindowsButton></a>
 		<div class="internal-links">
 			<HeaderLink href="/blog">
-				<IconButton>
-					<TechBlogIcon height={50} slot="icon"/>
-					Tech Blog
-				</IconButton>
+				<TechBlogIcon height={50} slot="icon"/>
+				<p slot="label">Tech Blog</p>
 			</HeaderLink>
 			<HeaderLink href="/supercoach-blog">
-				<IconButton>
-					<NrlSupercoachAiBlogIcon height={50}/>
-					Supercoach AI Blog
-				</IconButton>
+				<NrlSupercoachAiBlogIcon height={50} slot="icon"/>
+				<p slot="label">Supercoach AI Blog</p>
 			</HeaderLink>
 			<HeaderLink href="/supercoach-sim">
-				<IconButton>
-					<NrlSupercoachAiSimIcon height={50} />
-					Supercoach AI Sim
-				</IconButton>
+				<NrlSupercoachAiSimIcon height={50} slot="icon" />
+				<p slot="label">Supercoach AI Sim</p>
 			</HeaderLink>
 		</div>
-		<WindowsButton id="navMenuButton">Menu</WindowsButton>
+		<IconButton id="navMenuButton">
+			<MenuIcon height={50} slot="icon"/>
+			<p>Menu</p>
+		</IconButton>
 		
 	</nav>
 	<div id="sidebarMenu" class:list={["sidenav", {open: false}]}> 
@@ -43,22 +41,16 @@ import NrlSupercoachAiSimIcon from './NrlSupercoachAiSimIcon.astro';
 		</div>
 		<div class="sidebarMenuPageButtons">
 			<HeaderLink href="/blog">
-				<IconButton>
-					<TechBlogIcon height={50} slot="icon"/>
-					Tech Blog
-				</IconButton>
+				<TechBlogIcon height={50} slot="icon"/>
+				<p slot="label">Tech Blog</p>
 			</HeaderLink>
 			<HeaderLink href="/supercoach-blog">
-				<IconButton>
-					<NrlSupercoachAiBlogIcon height={50}/>
-					Supercoach AI Blog
-				</IconButton>
+				<NrlSupercoachAiBlogIcon height={50} slot="icon"/>
+				<p slot="label">Supercoach AI Blog</p>
 			</HeaderLink>
 			<HeaderLink href="/supercoach-sim">
-				<IconButton>
-					<NrlSupercoachAiSimIcon height={50} />
-					Supercoach AI Sim
-				</IconButton>
+				<NrlSupercoachAiSimIcon height={50} slot="icon" />
+				<p slot="label">Supercoach AI Sim</p>
 			</HeaderLink>
 		</div>
 	</div>
@@ -145,6 +137,11 @@ import NrlSupercoachAiSimIcon from './NrlSupercoachAiSimIcon.astro';
 		justify-content: center;
 		padding: 10px;
 		gap: 10px;
+	}
+	p {
+		margin: 0;
+		padding-top: 4px;
+		font-weight: bold;
 	}
 	
 	
