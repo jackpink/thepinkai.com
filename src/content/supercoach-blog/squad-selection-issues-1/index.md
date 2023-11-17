@@ -1,5 +1,6 @@
 ---
 title: "Squad Selection Issues: Part 1"
+category: "selecting-squad"
 date: "2023-03-11T11:00:00.121Z"
 pubDate: "Mar 15 2023"
 description: "Figuring out why the algorithm makes the often strange decisions it does."

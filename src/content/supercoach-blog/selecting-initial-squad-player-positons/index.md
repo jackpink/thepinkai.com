@@ -1,5 +1,6 @@
 ---
-title: 'Selecting Initial Squad: Player Positions'
+title: 'Player Positions'
+category: "selecting-squad"
 date: "2022-02-11T13:00:00.121Z"
 pubDate: "Feb 13 2022"
 description: "Handling different player positions in the algorithm top select the initial squad"

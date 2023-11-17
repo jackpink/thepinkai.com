@@ -1,5 +1,6 @@
 ---
-title: 'Team Selection: Predicting Player Score'
+title: 'Predicting Player Score'
+category: "team-selection"
 date: "2022-02-11T14:00:00.121Z"
 pubDate: "Feb 11 2022"
 description: ""
