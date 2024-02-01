@@ -1,5 +1,6 @@
 ---
-title: 'Team Selection: Regression and Greedy Selection'
+title: 'Regression and Greedy Selection'
+category: "team-selection"
 date: "2022-02-11T15:00:00.121Z"
 pubDate: "Feb 13 2022"
 description: ""

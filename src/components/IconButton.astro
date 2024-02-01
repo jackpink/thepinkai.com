@@ -1,20 +1,29 @@
 ---
+import WindowsButton from './WindowsButton.astro'
 
+type Props = {
+    id?: string;
+    active?: boolean;
+}
 
+const { id, active=false } = Astro.props
 
 ---
 
-<div>
-    <slot name="icon"/>
-	<slot />
-</div>
+<WindowsButton active={active} id={id}>
+    <div>
+        <slot name="icon"/>
+        <slot />
+    </div>
+</WindowsButton>
 <style>
     div{
         flex-direction: column;
         display: flex;
-        padding: 3px 12px;
+        padding: 3px 0px;
         text-align: center;
         align-items: center;
     }
+
 	
 </style>

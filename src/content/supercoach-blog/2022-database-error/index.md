@@ -1,5 +1,6 @@
 ---
 title: "Missing Players In 2022 Database"
+category: "selecting-squad"
 pubDate: "Mar 11 2023"
 description: "Fixing an Error in the data I have been using"
 ---

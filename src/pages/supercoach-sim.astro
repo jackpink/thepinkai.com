@@ -3,10 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import Logo from '../components/Logo.astro';
-import InternetKingAd from '../components/InternetKingAd.astro';
 ---
-
 <!doctype html>
 <html lang="en">
 	<head>
@@ -18,18 +15,27 @@ import InternetKingAd from '../components/InternetKingAd.astro';
 				align-items: center;
 				gap: 6rem;
 				min-height: 100vh;
-				
 			}
 		</style>
 	</head>
 	<body>
 		<Header title={SITE_TITLE} />
-		<main>
-			<InternetKingAd />
-			
-			<Logo height={80} />
-			
-		</main>
-		<Footer />
-	</body>
+        <main>
+            <h2>NRL Supercoach Simultator</h2>
+            <p> Coming Soon... </p>
+        </main>
+        <Footer />
+    </body>
 </html>
+<style>
+    h2, p {
+				text-align: center;
+			}
+    h2{
+        background: linear-gradient( 
+    to right, #f32170, #ff6b08, 
+        #cf23cf, #eedd44);
+        -webkit-text-fill-color: transparent; 
+        -webkit-background-clip: text; 
+    }
+</style>

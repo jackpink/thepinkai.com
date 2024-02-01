@@ -1,5 +1,6 @@
 ---
-title: Selecting Initial Squad
+title: Algorithm Overview
+category: "selecting-squad"
 date: "2022-02-11T11:00:00.121Z"
 pubDate: "Feb 11 2022"
 description: "Algorithm for selecting our initial squad for the NRL SuperCoach AI"

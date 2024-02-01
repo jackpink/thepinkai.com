@@ -7,8 +7,13 @@ import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 
 const posts = (await getCollection('supercoach-blog')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+const selectingSquadPosts = posts.filter((post) => post.data.category === 'selecting-squad');
+const teamSelectionPosts = posts.filter((post) => post.data.category === 'team-selection');
+const playerTradesPosts = posts.filter((post) => post.data.category === 'player-trades');
+
 ---
 
 <!doctype html>
@@ -17,7 +22,8 @@ const posts = (await getCollection('supercoach-blog')).sort(
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
 			main {
-				width: 960px;
+			
+				
 			}
 			ul {
 				display: flex;
@@ -34,17 +40,7 @@ const posts = (await getCollection('supercoach-blog')).sort(
 				text-decoration: none;
 				transition: 0.2s ease;
 			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
+			
 			ul li img {
 				margin-bottom: 0.5rem;
 				border-radius: 12px;
@@ -54,12 +50,12 @@ const posts = (await getCollection('supercoach-blog')).sort(
 			}
 			.title {
 				margin: 0;
-				color: rgb(var(--black));
+				color: rgb(148 163 184);
 				line-height: 1;
 			}
 			.date {
 				margin: 0;
-				color: rgb(var(--gray));
+				color: rgb(100 116 139);
 			}
 			ul li a:hover h4,
 			ul li a:hover .date {
@@ -68,6 +64,23 @@ const posts = (await getCollection('supercoach-blog')).sort(
 			ul a:hover img {
 				box-shadow: var(--box-shadow);
 			}
+			h2, h3 {
+				text-align: center;
+			}
+			h2{
+				color: rgb(226 232 240);
+			}
+			h3 {
+				background-color: rgb(148 163 184);	
+				background: linear-gradient( 
+            to right, #f32170, #ff6b08, 
+             #cf23cf, #eedd44);
+				overflow: hidden;
+				border-radius: 0.375rem;
+				color: black;
+				
+			}
+
 			@media (max-width: 720px) {
 				ul {
 					gap: 0.5em;
@@ -76,25 +89,23 @@ const posts = (await getCollection('supercoach-blog')).sort(
 					width: 100%;
 					text-align: center;
 				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
+				
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<section>
-				<ul>
+			<div class="max-width">
+				<h2> NRL Supercoach AI Blog</h2>
+				<section>
+					
+					<h3>Selecting Initial Squad</h3>
+					<ul>
 					{
-						posts.map((post) => (
+						selectingSquadPosts.map((post) => (
 							<li>
 								<a href={`/supercoach-blog/${post.slug}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
 									<h4 class="title">{post.data.title}</h4>
 									<p class="date">
 										<FormattedDate date={post.data.pubDate} />
@@ -103,8 +114,39 @@ const posts = (await getCollection('supercoach-blog')).sort(
 							</li>
 						))
 					}
-				</ul>
-			</section>
+					</ul>
+					<h3>Team Selection</h3>
+					<ul>
+					{
+						teamSelectionPosts.map((post) => (
+							<li>
+								<a href={`/supercoach-blog/${post.slug}/`}>
+									<h4 class="title">{post.data.title}</h4>
+									<p class="date">
+										<FormattedDate date={post.data.pubDate} />
+									</p>
+								</a>
+							</li>
+						))
+					}
+					</ul>
+					<h3>Player Trades</h3>
+					<ul>
+					{
+						playerTradesPosts.map((post) => (
+							<li>
+								<a href={`/supercoach-blog/${post.slug}/`}>
+									<h4 class="title">{post.data.title}</h4>
+									<p class="date">
+										<FormattedDate date={post.data.pubDate} />
+									</p>
+								</a>
+							</li>
+						))
+					}
+					</ul>
+				</section>
+		</div>
 		</main>
 		<Footer />
 	</body>

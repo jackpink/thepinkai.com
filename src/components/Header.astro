@@ -4,8 +4,8 @@ import IconButton from './IconButton.astro';
 import Logo from './Logo.astro';
 import WindowsButton from './WindowsButton.astro';
 import WindowsTopBar from './WindowsTopBar.astro';
-import { SITE_TITLE } from '../consts';
 import TechBlogIcon from './TechBlogIcon.astro';
+import MenuIcon from './MenuIcon.astro';
 import NrlSupercoachAiBlogIcon from './NrlSupercoachAiBlogIcon.astro';
 import NrlSupercoachAiSimIcon from './NrlSupercoachAiSimIcon.astro';
 ---
@@ -17,27 +17,63 @@ import NrlSupercoachAiSimIcon from './NrlSupercoachAiSimIcon.astro';
 	<a href="/"><WindowsButton><Logo height="40"/></WindowsButton></a>
 		<div class="internal-links">
 			<HeaderLink href="/blog">
-				<IconButton>
-					<TechBlogIcon height={50} slot="icon"/>
-					Tech Blog
-				</IconButton>
+				<TechBlogIcon height={50} slot="icon"/>
+				<p slot="label">Tech Blog</p>
 			</HeaderLink>
 			<HeaderLink href="/supercoach-blog">
-				<IconButton>
-					<NrlSupercoachAiBlogIcon height={50}/>
-					NRL Supercoach AI Blog
-				</IconButton>
+				<NrlSupercoachAiBlogIcon height={50} slot="icon"/>
+				<p slot="label">Supercoach AI Blog</p>
 			</HeaderLink>
-			<HeaderLink href="/about">
-				<IconButton>
-				<NrlSupercoachAiSimIcon height={50} />
-				NRL Supercoach AI Sim
-			</IconButton>
-		</HeaderLink>
+			<HeaderLink href="/supercoach-sim">
+				<NrlSupercoachAiSimIcon height={50} slot="icon" />
+				<p slot="label">Supercoach AI Sim</p>
+			</HeaderLink>
 		</div>
+		<IconButton id="navMenuButton">
+			<MenuIcon height={50} slot="icon"/>
+			<p>Menu</p>
+		</IconButton>
 		
 	</nav>
+	<div id="sidebarMenu" class:list={["sidenav", {open: false}]}> 
+		<div class="sidebarMenuCloseButton">
+			<WindowsButton id="sidebarMenuCloseButton">X</WindowsButton>
+		</div>
+		<div class="sidebarMenuPageButtons">
+			<HeaderLink href="/blog">
+				<TechBlogIcon height={50} slot="icon"/>
+				<p slot="label">Tech Blog</p>
+			</HeaderLink>
+			<HeaderLink href="/supercoach-blog">
+				<NrlSupercoachAiBlogIcon height={50} slot="icon"/>
+				<p slot="label">Supercoach AI Blog</p>
+			</HeaderLink>
+			<HeaderLink href="/supercoach-sim">
+				<NrlSupercoachAiSimIcon height={50} slot="icon" />
+				<p slot="label">Supercoach AI Sim</p>
+			</HeaderLink>
+		</div>
+	</div>
 </header>
+
+
+<script>
+    const navMenuButton = document.getElementById('navMenuButton');
+	const sidebarMenuCloseButton = document.getElementById('sidebarMenuCloseButton');
+    const sidebarMenu = document.getElementById('sidebarMenu');
+    
+	navMenuButton?.addEventListener('click', () => {
+		sidebarMenu?.classList.
+		   toggle('open');
+	});
+
+    sidebarMenuCloseButton?.addEventListener('click', () => {
+        sidebarMenu?.classList.
+		   toggle('open');
+    });
+</script>
+
+
 <style>
 	header {
 		margin: 0;
@@ -62,6 +98,70 @@ import NrlSupercoachAiSimIcon from './NrlSupercoachAiSimIcon.astro';
 		border-bottom: 3px solid #848484;
 		
 	}
+
+	.sidenav {
+        height: 100%; /* 100% Full-height */
+        width: 0; /* 0 width - change this with JavaScript */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Stay on top */
+        top: 0; /* Stay at the top */
+        right: 0;
+        background-color: #c6c6c6; /* Black*/
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 10px; /* Place content 60px from the top */
+        transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+		border-left: 3px solid #fff;
+    }
+	
+    .open {
+        width: 250px;
+    }
+
+	.internal-links {
+		
+		align-items: center;
+		gap: 10px;
+	}
+
+	.sidebarMenuCloseButton {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 10px;
+	}
+	
+	.sidebarMenuPageButtons {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 10px;
+		gap: 10px;
+	}
+	p {
+		margin: 0;
+		padding-top: 4px;
+		font-weight: bold;
+	}
 	
 	
+</style>
+
+<style is:global>
+	@media (max-width: 639px){
+		.internal-links {
+			display: none;
+		}
+		#navMenuButton {
+			display: block;
+		}	
+	}
+	@media (min-width: 640px) {
+		#navMenuButton {
+			display: none;
+		}
+		.internal-links {
+			display: flex;
+		}
+	}
 </style>

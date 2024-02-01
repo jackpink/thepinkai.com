@@ -7,6 +7,7 @@ const blogSchema = z.object({
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
+		category: z.string().optional(),
 	});
 
 const techBlogCollection = defineCollection({

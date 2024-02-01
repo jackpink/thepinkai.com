@@ -1,0 +1,45 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import IconButton from './IconButton.astro';
+import Logo from './Logo.astro';
+import WindowsButton from './WindowsButton.astro';
+import WindowsTopBar from './WindowsTopBar.astro';
+import TechBlogIcon from './TechBlogIcon.astro';
+import NrlSupercoachAiBlogIcon from './NrlSupercoachAiBlogIcon.astro';
+import NrlSupercoachAiSimIcon from './NrlSupercoachAiSimIcon.astro';
+
+/* Set the width of the side navigation to 250px */
+let isOpen =false;
+
+const closeNav = () => {
+    
+}
+
+---
+
+<div id="sidebarMenu" class:list={["sidenav", {open: false}]}> 
+    <WindowsButton id="sidebarMenuCloseButton">X</WindowsButton>
+</div>
+
+
+<style>
+	
+    .sidenav {
+        height: 100%; /* 100% Full-height */
+        width: 0; /* 0 width - change this with JavaScript */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Stay on top */
+        top: 0; /* Stay at the top */
+        right: 0;
+        background-color: #c6c6c6; /* Black*/
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 60px; /* Place content 60px from the top */
+        transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    }
+	
+    .open {
+        width: 250px;
+    }
+	
+	
+</style>

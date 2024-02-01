@@ -1,5 +1,6 @@
 ---
 title: "Squad Selection Issues: Part 2"
+category: "selecting-squad"
 date: "2023-03-11T11:00:00.121Z"
 pubDate: "Mar 16 2023"
 description: "Predicting player scores for upcoming season, to select better guns"

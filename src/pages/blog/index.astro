@@ -9,6 +9,9 @@ import FormattedDate from '../../components/FormattedDate.astro';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
+
+const javascriptPosts = posts.filter((post) => post.data.category === 'javascript');
+
 ---
 
 <!doctype html>
@@ -17,7 +20,7 @@ const posts = (await getCollection('blog')).sort(
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
 			main {
-				width: 960px;
+			
 			}
 			ul {
 				display: flex;
@@ -34,17 +37,7 @@ const posts = (await getCollection('blog')).sort(
 				text-decoration: none;
 				transition: 0.2s ease;
 			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
+			
 			ul li img {
 				margin-bottom: 0.5rem;
 				border-radius: 12px;
@@ -54,12 +47,12 @@ const posts = (await getCollection('blog')).sort(
 			}
 			.title {
 				margin: 0;
-				color: rgb(var(--black));
+				color: rgb(148 163 184);
 				line-height: 1;
 			}
 			.date {
 				margin: 0;
-				color: rgb(var(--gray));
+				color: rgb(100 116 139);
 			}
 			ul li a:hover h4,
 			ul li a:hover .date {
@@ -76,25 +69,38 @@ const posts = (await getCollection('blog')).sort(
 					width: 100%;
 					text-align: center;
 				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
+				
 			}
+			h2, h3 {
+				text-align: center;
+			}
+			h2{
+				color: rgb(226 232 240);
+			}
+			h3 {
+				background-color: rgb(148 163 184);	
+				background: linear-gradient( 
+            to right, #f32170, #ff6b08, 
+             #cf23cf, #eedd44);
+				overflow: hidden;
+				border-radius: 0.375rem;
+				color: black;
+				
+			}
+
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
 			<section>
+				<h2>Tech Blog</h2>
+				<h3>JavaScript</h3>
 				<ul>
 					{
-						posts.map((post) => (
+						javascriptPosts.map((post) => (
 							<li>
 								<a href={`/blog/${post.slug}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
 									<h4 class="title">{post.data.title}</h4>
 									<p class="date">
 										<FormattedDate date={post.data.pubDate} />

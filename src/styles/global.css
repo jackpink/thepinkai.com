@@ -34,12 +34,12 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
+	background-color:rgb(76 29 149);
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
-	font-size: 20px;
+	color: rgb(241 245 249);
+	font-size: 18px;
 	line-height: 1.7;
 }
 main {
@@ -47,6 +47,7 @@ main {
 	max-width: calc(100% - 2em);
 	margin: auto;
 	padding: 3em 1em;
+	color: rgb(241 245 249);
 }
 h1,
 h2,
@@ -134,6 +135,8 @@ hr {
 		padding: 1em;
 	}
 }
+
+
 
 .sr-only {
 	border: 0;
