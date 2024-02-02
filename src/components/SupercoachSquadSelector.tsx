@@ -16,7 +16,7 @@ const SupercoachSquadSelectorApp = () => {
 export default SupercoachSquadSelectorApp;
 
 const boredApiQuery = async () => {
-    const response = await fetch('https://www.boredapi.com/api/activity');
+    const response = await fetch('https://nrl-supercoach-ai-46zughvc3a-ts.a.run.app/');
     return response.json();
 }
 
@@ -24,13 +24,14 @@ const SupercoachSquadSelector = () => {
 
     const queryClient = useQueryClient();
 
-    const {data} = useQuery({ queryKey: ['boredApi'], queryFn: boredApiQuery})
+    const {data, error} = useQuery({ queryKey: ['boredApi'], queryFn: boredApiQuery})
     console.log(data);
 
     return(
         <div>
         <h1>New Supercoach Squad Selector with API</h1>
         {data ? <p>{data.activity}</p> : <p>Loading...</p>}
+        {error && <p>Error: {error.message}</p>}
         <button onClick={() => queryClient.invalidateQueries({queryKey: ['boredApi']})}>click me</button>
 </div>
     )
