@@ -30,7 +30,7 @@ const SupercoachSquadSelector = () => {
     return(
         <div>
         <h1>New Supercoach Squad Selector with API</h1>
-        {data ? <p>{data.activity}</p> : <p>Loading...</p>}
+        {data && data["Fullbacks"] && data["Fullbacks"][0] ? <p>{data["Fullbacks"][0].Name}</p> : <p>Loading...</p>}
         {error && <p>Error: {error.message}</p>}
         <button onClick={() => queryClient.invalidateQueries({queryKey: ['boredApi']})}>click me</button>
 </div>
