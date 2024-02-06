@@ -52,19 +52,19 @@ const TeamColours = ({team}: {team: string}) => {
         colours = ['blue', 'red', 'blue']
         break;
     case 'NZW':
-        colours = ['black', 'white', 'black']
+        colours = ['black', 'grey', 'black']
         break;
     case 'STI':
         colours = ['red', 'white', 'red']
         break;
     case 'SYD':
-        colours = ['red', 'white', 'red']
+        colours = ['blue', 'white', 'red']
         break;
     case 'WST':
-        colours = ['orange', 'black', 'orange']
+        colours = ['orange', 'white', 'black']
         break
     case 'DOL':
-        colours = ['purple', 'white', 'purple']
+        colours = ['red', 'white', 'red']
         break;
     }
 
