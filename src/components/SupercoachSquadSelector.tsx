@@ -83,9 +83,50 @@ const SupercoachSquadSelector = () => {
     return(
         <div>
         <h1>New Supercoach Squad Selector with API</h1>
+        <SelectSquadInputs />
         {squad? <DisplaySquad squad={squad} />: <p>Loading...</p>}
         {error && <p>Error: {error.message}</p>}
         <button onClick={() => refetch()}>click me</button>
 </div>
+    )
+}
+
+
+const SelectSquadInputs = () => {
+
+    return(
+        <div>
+            <label >Year:</label>
+            <select>
+                <option>2016</option>
+                <option>2017</option>
+                <option>2018</option>
+                <option>2019</option>
+                <option>2020</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+            </select>
+            <label>Number of Rookies:</label>
+            <select>
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                </select>
+            <label>Method to Predict Player Score:</label>
+            <select>
+                <option>Average from previous seasons</option>
+                <option>Neural Network</option>
+              
+                </select>
+        </div>
     )
 }
