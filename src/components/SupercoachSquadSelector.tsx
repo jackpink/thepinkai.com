@@ -14,7 +14,6 @@ export type Squad = {
 
 export type Player = {
     Name: string;
-    Position: string;
     Price: number;
     Team: string;
 }
@@ -65,7 +64,7 @@ const SupercoachSquadSelectorApp = () => {
 
 export default SupercoachSquadSelectorApp;
 
-const boredApiQuery = async () => {
+const getSquadApiQuery = async () => {
     const response = await fetch('https://nrl-supercoach-ai-46zughvc3a-ts.a.run.app/');
     const squad = await response.json();
     if (isSquad(squad)) {
@@ -78,7 +77,7 @@ const SupercoachSquadSelector = () => {
 
     const queryClient = useQueryClient();
 
-    const {data: squad, error} = useQuery({ queryKey: ['boredApi'], queryFn: boredApiQuery})
+    const {data: squad, error, refetch} = useQuery({ queryKey: ['getSquadApi'], queryFn: getSquadApiQuery, enabled: false})
     // console.log(squad);
 
     return(
@@ -86,7 +85,7 @@ const SupercoachSquadSelector = () => {
         <h1>New Supercoach Squad Selector with API</h1>
         {squad? <DisplaySquad squad={squad} />: <p>Loading...</p>}
         {error && <p>Error: {error.message}</p>}
-        <button onClick={() => queryClient.invalidateQueries({queryKey: ['boredApi']})}>click me</button>
+        <button onClick={() => refetch()}>click me</button>
 </div>
     )
 }
