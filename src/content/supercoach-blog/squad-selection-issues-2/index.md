@@ -1188,7 +1188,7 @@ SQUAD (using NN pred as value)
 
 </aside>
 
-# This looks better on face value, but lets investigate by simulating the results from previous seasons to test
+## This looks better on face value, but lets investigate by simulating the results from previous seasons to test
 
 GRAPTH (results of simulations)
 
